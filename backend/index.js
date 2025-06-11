@@ -14,6 +14,7 @@ const app = express();
 app.use(cors());
 const PORT = process.env.PORT;
 const bodyParser = require('body-parser');
+require('dotenv').config(); // <--- This line is missing
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -46,5 +47,5 @@ app.use(cookieParser());
 
 app.use("/api", userRoute);
 // app.use("/", checkAuth, staticRoute);
-
-server.listen(PORT, () => console.log(`Server Started at PORT:${PORT}`));
+let port= PORT || 5000;
+server.listen(8001, () => console.log(`Server Started at PORT:${8001}`));
